@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <author>hydroz.net (3D model); REDPATH Jonathan and D-ECHO (adapted for fg) and more (see README)</author>
+    <description>Pottier P130 Ultralight Aircraft (yasim)</description>
+    <aircraft-version>0.2</aircraft-version>
+    <status>early production</status>
+
+    <rating>
+      <FDM type="int">1</FDM>
+      <systems type="int">0</systems>
+      <cockpit type="int">3</cockpit>
+      <model type="int">1</model>
+    </rating>
+
+    <flight-model archive="y">yasim</flight-model>
+    <aero archive="y">p130ul</aero>
+
+    <startup>
+      <splash-texture>Aircraft/P130UL/splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path archive="y">Aircraft/P130UL/P130-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Models/p130ul.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+ 
+    <fuel-fraction>1.0</fuel-fraction>
+
+    <instrumentation>
+      <path>instrumentation.xml</path>
+    </instrumentation>      
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int type="int" n="0">  0 </int>                                      <!-- 0 immat -->
+        <int type="int" n="1">  0 </int>                                      <!-- 1 immat -->
+        <int type="int" n="2">  0 </int>                                      <!-- 2 immat -->
+        <int type="int" n="3">  0 </int>                                      <!-- 3 immat -->
+        <int type="int" n="4">  0 </int>                                      <!-- 4 immat -->
+        <int type="int" n="5">  0 </int>                                      <!-- 5 immat -->
+        <int type="bool" n="6"> 0 </int>                                      <!-- 6 smoke -->
+        <int type="int" n="7">  0 </int>                                      <!-- 7 color -->
+        <int n="8" alias="/systems/electrical/outputs/nav-lights">  0 </int>  <!-- 8 nav-lights -->
+        <int n="9" alias="/sim/model/lights/beacon/state">  false </int>      <!-- 9 strobe-lights -->
+        <int n="10" alias="/controls/electric/key-pos">  0 </int>             <!-- 10 key position -->
+        <int n="11" alias="/systems/electrical/outputs/landing-lights">  0 </int>      <!-- 9 landing-lights -->
+        <int n="12" alias="/systems/electrical/outputs/beacon">  0 </int>      <!-- 9 landing-lights -->
+        <float n="2" alias="/position/gear-agl-m">  0 </float>                <!-- 11 altitude for MP shadow -->
+        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
+        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>  
+      </generic>
+    </multiplay>
+    <help>
+      <title>Pottier P130 Ultra Light Sport Aircraft</title>
+      <line>______________________________________________</line>
+      <key>
+        <name>d</name>
+        <desc>Open and Close pilot door</desc>
+      </key>
+      <key>
+        <name>D</name>
+        <desc>Open and Close passenger door</desc>
+      </key>
+      <key>
+        <name>B</name>
+        <desc>Parking brake</desc>
+      </key>
+
+    </help>
+ <p130ul>
+      <state type="int">0</state>
+      <airspeed-kmh type="float">0</airspeed-kmh>
+      <engine-rpm type="float">0</engine-rpm>
+      <engine-volume-low-rpm type="float">0</engine-volume-low-rpm>
+      <engine-volume-high-rpm type="float">0</engine-volume-high-rpm>
+    </p130ul>
+    <flaps>
+        <setting> 0.00 </setting> <!--  Cruise -->
+        <setting> 0.50 </setting> <!-- 1 Flaps -->
+        <setting> 1.00 </setting> <!-- 2 Flaps -->
+    </flaps>
+
+    <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>140</min-lb>
+    </weight>
+
+    <weight n="1">
+      <name>Pax</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="2">
+      <name>Baggage</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>20</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+   <menubar include="Dialogs/menu.xml"/>
+  </sim>
+
+  
+  <controls>
+      <electric>
+          <engine>
+              <generator>0</generator>
+          </engine>
+      </electric>
+    <engines>
+      <engine>
+        <magnetos type="int">0</magnetos>
+      </engine>
+    </engines>
+    <gear>
+        <tricycle>1</tricycle>
+    </gear>
+    <flight>
+      <flaps-anim type="int">0</flaps-anim>
+    </flight>
+    <switches>
+      <transponder-pos type="double"/> <!-- Force à être un "double" au lieu d'un "bool" -->
+    </switches>
+  </controls>
+
+
+
+  <nasal>
+    <doors>
+      <file>Nasal/doors.nas</file>
+    </doors>
+    <p130ul>
+      <file>Nasal/light.nas</file>
+      <file>Nasal/electrical.nas</file>
+      <file>Nasal/systems.nas</file>
+      <file>Nasal/liveries.nas</file>
+    </p130ul>
+  </nasal>
+
+</PropertyList>

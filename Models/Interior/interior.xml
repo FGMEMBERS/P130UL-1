@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+<!--Pedal animation-->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Palonnier</object-name>
+    <property>controls/flight/rudder</property>
+ <interpolation>
+      <entry><ind> -1 </ind><dep>  -30 </dep></entry>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 30 </dep></entry>
+    </interpolation>
+    <factor> 15 </factor>
+    <center>
+      <x-m>  -0.438 </x-m>
+      <z-m>-0.78708</z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>Palonnier.002</object-name>
+    <property>controls/flight/rudder</property>
+ <interpolation>
+      <entry><ind> -1 </ind><dep>  30 </dep></entry>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -30 </dep></entry>
+    </interpolation>
+    <factor> 15 </factor>
+    <center>
+      <x-m> -0.40115</x-m>
+      <z-m> -0.79001</z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+ <!-- 
+ <effect>
+   <inherits-from>Aircraft/CH750STOL/Models/Effects/interior/interior-shadow</inherits-from>
+   <object-name>Pilot</object-name>
+   <object-name>Pilot.001</object-name>
+   <object-name>Interieur</object-name>
+   <object-name>Strut.003</object-name>
+   <object-name>Manche</object-name>
+   <object-name>Manche.001</object-name>
+   <object-name>Manche.002</object-name>
+   <object-name>Siege</object-name>
+   <object-name>Siege.001</object-name>
+   <object-name>Habitacle</object-name>
+ </effect>
+<effect>
+   <inherits-from>Aircraft/CH750STOL/Models/Effects/interior/interior-glass</inherits-from>
+    <object-name>doorLglassint</object-name>
+    <object-name>doorRglassint</object-name>
+   <object-name>windowFint</object-name>
+   <object-name>windowRint</object-name>
+ </effect>
+  <animation>
+    <type>noshadow</type>
+    <object-name>windowFint</object-name>
+    <object-name>windowRint</object-name>
+    <object-name>doorRglassint</object-name>
+    <object-name>doorLglassint</object-name>
+  </animation>
+  -->
+
+  <!-- Panel -->
+  <model>
+    <path>Panel/panel.xml</path>
+  </model>
+
+<!--Yoke Animation-->
+  <animation>
+    <type>rotate</type>
+    <object-name>yoke</object-name>
+    <property>controls/flight/elevator</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m>  0.25404 </x-m>
+      <z-m>-0.78307</z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> -1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>yoke</object-name>
+    <property>controls/flight/aileron</property>
+    <factor> 20 </factor>
+    <center>
+      <x-m>  0.25404</x-m>
+      <z-m>-0.78307</z-m>
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+</PropertyList>
+

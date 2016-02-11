@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>panel.ac</path>
+  
+ <effect>
+   <inherits-from>Aircraft/CH750STOL/Models/Effects/interior/interior-shadow</inherits-from>
+   <object-name>cockpit.001</object-name>
+ </effect>
+  
+<!--ASI-->
+<animation>
+  <type>rotate</type>
+  <object-name>asineedle</object-name>
+  <property>/instrumentation/airspeed-indicator/indicated-speed-kmh</property>
+   <interpolation>
+     <entry><ind> 0 </ind><dep>  0.00 </dep></entry>
+     <entry><ind> 100 </ind><dep> 95 </dep></entry>
+     <entry><ind> 200 </ind><dep> 228</dep></entry>
+     <entry><ind> 250 </ind><dep> 287</dep></entry>
+     <entry><ind> 300 </ind><dep> 340</dep></entry>
+   </interpolation>
+  <center>
+   <x-m>-0.03064</x-m>
+   <y-m>-0.24436</y-m>
+   <z-m>-0.18267</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+<!--RPM-->
+<animation>
+  <type>rotate</type>
+  <object-name>rpmneedle</object-name>
+  <property>/engines/engine/rpm</property>
+   <interpolation>
+     <entry><ind> 0 </ind><dep>  0.00 </dep></entry>
+     <entry><ind> 2000 </ind><dep> 138</dep></entry>
+     <entry><ind> 4000 </ind><dep> 270</dep></entry>
+   </interpolation>
+  <center>
+   <x-m>-0.02433</x-m>
+   <y-m>-0.24505</y-m>
+   <z-m>-0.28037</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ <!--Altimeter-->
+  <animation>
+    <type>rotate</type>
+    <object-name>P.004</object-name>
+    <property>instrumentation/altimeter/setting-hpa</property>
+    <factor>5</factor>
+    <center>
+      <x-m> -0.0263 </x-m>
+      <y-m> -0.1778 </y-m>
+      <z-m> -0.2131 </z-m>
+    </center>
+    <axis>
+      <x1-m>-0.0343 </x1-m>
+      <z1-m>-0.1805</z1-m>
+      <x2-m> 0.0782</x2-m>
+      <z2-m>  -0.164 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>P.004</object-name>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/altimeter/setting-hpa</property>
+        <factor>-1</factor>
+        <min>950.0</min>
+        <max>1050.0</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>alt-setting</tooltip-id>
+        <label>Altimeter QNH: %.0f</label>
+        <property>instrumentation/altimeter/setting-hpa</property>
+      </binding>
+    </hovered>   
+  </animation>
+
+  <animation>
+    <type>texrotate</type>
+    <object-name>P.005</object-name>
+    <property>instrumentation/altimeter/setting-inhg</property>
+    <interpolation>
+      <entry><ind> 29.00</ind><dep> 48.0</dep></entry>
+      <entry><ind>29.6</ind><dep>  0.0</dep></entry>
+      <entry><ind>30.00</ind><dep>-30.0</dep></entry>
+      <entry><ind>31.00</ind><dep>-106.0</dep></entry>
+      <entry><ind>32.00</ind><dep>-212.0</dep></entry>
+    </interpolation>
+    <center>
+      <x>0.676</x>
+      <y>0.693</y>
+      <z>0.00</z>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+    <animation>
+    <type>rotate</type>
+    <object-name>P</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>-0.36</factor>
+    <center>
+   <x-m>-0.02925</x-m>
+   <y-m>-0.14449</y-m>
+   <z-m>-0.18057</z-m>
+    </center>
+    <axis>
+      <x1-m>-0.0343 </x1-m>
+      <z1-m>-0.1805</z1-m>
+      <x2-m> 0.0782</x2-m>
+      <z2-m>  -0.164 </z2-m>
+    </axis>
+  </animation>
+  
+    <animation>
+    <type>rotate</type>
+    <object-name>P.001</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>-0.036</factor>
+    <center>
+   <x-m>-0.02925</x-m>
+   <y-m>-0.14449</y-m>
+   <z-m>-0.18057</z-m>
+    </center>
+    <axis>
+      <x1-m>-0.0343 </x1-m>
+      <z1-m>-0.1805</z1-m>
+      <x2-m> 0.0782</x2-m>
+      <z2-m>  -0.164 </z2-m>
+    </axis>
+  </animation>
+  
+  <!--Vertical Speed Indicator-->
+     <animation>
+    <type>rotate</type>
+    <object-name>P.003</object-name>
+    <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+    <factor>-0.09</factor>
+    <center>
+   <x-m>-0.02064</x-m>
+   <y-m>-0.14449</y-m>
+   <z-m>-0.28037</z-m>
+    </center>
+    <axis>
+      <x1-m>-0.0343 </x1-m>
+      <z1-m>-0.1805</z1-m>
+      <x2-m> 0.0782</x2-m>
+      <z2-m>  -0.164 </z2-m>
+    </axis>
+  </animation>
+  <!--Compass-->
+     <animation>
+    <type>rotate</type>
+    <object-name>gyroDiscTop</object-name>
+    <property>instrumentation/magnetic-compass/indicated-heading-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>-0.0506 </x-m>
+   <y-m>-0.0455</y-m>
+      <z-m>-0.2022</z-m>
+    </center>
+    <axis>
+      <x1-m>-0.0506 </x1-m>
+      <z1-m>-0.2022</z1-m>
+      <x2-m> -0.0551</x2-m>
+      <z2-m> -0.1519</z2-m>
+    </axis>
+  </animation>
+  <!--RIGHT PART-->
+  <!--volt meter-->
+ <animation>
+    <type>rotate</type>
+    <object-name>Plane.003</object-name>
+    <property>systems/electrical/volts</property>
+    <factor>-2</factor>
+    <center>
+   <x-m>-0.03103</x-m>
+   <y-m>0.277</y-m>
+   <z-m>-0.24494</z-m>
+    </center>
+    <axis>
+      <x1-m>-0.0343 </x1-m>
+      <z1-m>-0.1805</z1-m>
+      <x2-m> 0.0782</x2-m>
+      <z2-m>  -0.164 </z2-m>
+    </axis>
+  </animation>
+  <!--fuel level-->
+ <animation>
+    <type>rotate</type>
+    <object-name>Plane.002</object-name>
+    <property>consumables/fuel/total-fuel-norm</property>
+    <factor>-82.7</factor>
+    <center>
+   <x-m>-0.02475</x-m>
+   <y-m>0.277</y-m>
+   <z-m>-0.31667</z-m>
+    </center>
+    <axis>
+      <x1-m>-0.0343 </x1-m>
+      <z1-m>-0.1805</z1-m>
+      <x2-m> 0.0782</x2-m>
+      <z2-m>  -0.164 </z2-m>
+    </axis>
+  </animation>
+  
+  
+<!--Throttle-->
+ <animation>
+   <type>rotate</type>
+   <object-name>Manette.001</object-name>
+   <property>controls/engines/engine[0]/throttle</property>
+   <factor>-32</factor>
+   <center>
+   <x-m>-0.02568</x-m>
+   <z-m>-0.52586</z-m>
+    </center>
+   <axis>
+    <y> 1 </y>
+    <z> 0 </z>
+   </axis>
+  </animation>
+<!--Mixture-->
+ <animation>
+   <type>rotate</type>
+   <object-name>Manette.002</object-name>
+   <property>controls/engines/engine[0]/mixture</property>
+   <factor>-32</factor>
+   <center>
+   <x-m>-0.02568</x-m>
+   <z-m>-0.52586</z-m>
+    </center>
+   <axis>
+    <y> 1 </y>
+    <z> 0 </z>
+   </axis>
+  </animation>
+<!--Propeller Pitch-->
+ <animation>
+   <type>rotate</type>
+   <object-name>Manette</object-name>
+   <property>controls/engines/engine[0]/propeller-pitch</property>
+   <factor>-32</factor>
+   <center>
+   <x-m>-0.02568</x-m>
+   <z-m>-0.52586</z-m>
+    </center>
+   <axis>
+    <y> 1 </y>
+    <z> 0 </z>
+   </axis>
+  </animation>
+
+
+<!--SWITCHES-->
+<!--Alternator switch-->
+ <animation>
+    <type>pick</type>
+    <object-name>genswitch</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/engine/generator</property>
+      </binding>
+      <binding>
+          <command>property-toggle</command>
+          <property>sim/model/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>genswitch</object-name>
+        <property>controls/electric/engine/generator-pos</property>
+    <factor> 70 </factor>
+    <center>
+      <x-m> -0.01181 </x-m>
+      <z-m> -0.34486</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+<!--Master Switch-->
+
+ <animation>
+    <type>pick</type>
+    <object-name>battswitch</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/battery-switch</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine/master-bat</property>
+      </binding>
+      <binding>
+          <command>property-toggle</command>
+          <property>sim/model/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>battswitch</object-name>
+    <property>controls/engines/engine/master-bat-pos</property>
+    <factor> 70 </factor>
+    <center>
+      <x-m> -0.01181 </x-m>
+      <z-m> -0.34486</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+<!--Radio Master Switch-->
+
+ <animation>
+    <type>pick</type>
+    <object-name>radioswitch</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/radio-master</property>
+      </binding>
+      <binding>
+          <command>property-toggle</command>
+          <property>sim/model/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>radioswitch</object-name>
+        <property>controls/electric/radio-master</property>
+    <factor> 70 </factor>
+    <center>
+      <x-m> -0.01181 </x-m>
+      <z-m> -0.34486</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+<!--Strobe Light Switch-->
+<animation>
+    <type>pick</type>
+    <object-name>flashswitch</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/beacon</property>
+      </binding>
+      <binding>
+          <command>property-toggle</command>
+          <property>sim/model/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>flashswitch</object-name>
+        <property>controls/lighting/beacon-pos</property>
+    <factor> 70 </factor>
+    <center>
+      <x-m> -0.01181 </x-m>
+      <z-m> -0.34486</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+<!---Fuel Pump Switch-->
+<animation>
+    <type>pick</type>
+    <object-name>fuelpumpswitch</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/engines/engine/fuel-pump</property>
+      </binding>
+      <binding>
+          <command>property-toggle</command>
+          <property>sim/model/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>fuelpumpswitch</object-name>
+        <property>/controls/engines/engine/fuel-pump-pos</property>
+    <factor> 70 </factor>
+    <center>
+      <x-m> -0.01181 </x-m>
+      <z-m> -0.34486</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+<!---Fuel Valve Switch-->
+<animation>
+    <type>pick</type>
+    <object-name>Fuel</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+          <condition><not>
+        <property>/consumables/fuel/tank/selected-block</property>
+        </not></condition>
+        <command>property-toggle</command>
+        <property>/consumables/fuel/tank/selected</property>
+      </binding>
+      <binding>
+          <command>property-toggle</command>
+          <property>sim/model/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Fuel</object-name>
+        <property>/consumables/fuel/tank/selected</property>
+    <factor> 180 </factor>
+    <axis>
+      <x1-m>0.1314 </x1-m>
+      <z1-m>-0.5362</z1-m>
+      <x2-m> 0.1472</x2-m>
+      <z2-m>  -0.5193 </z2-m>
+    </axis>
+  </animation>
+<animation>
+    <type>pick</type>
+    <object-name>Fuel.001</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/consumables/fuel/tank/selected-block</property>
+      </binding>
+      <binding>
+          <command>property-toggle</command>
+          <property>sim/model/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>Fuel.001</object-name>
+        <property>/consumables/fuel/tank/selected-block</property>
+    <factor> -0.001</factor>
+    <axis>
+      <x1-m>0.1314 </x1-m>
+      <z1-m>-0.5362</z1-m>
+      <x2-m> 0.1472</x2-m>
+      <z2-m>  -0.5193 </z2-m>
+    </axis>
+  </animation>
+  <!--magneto switch-->
+  
+<animation>
+    <type>pick</type>
+    <object-name>Ignition</object-name>
+    <object-name>Ignition.001</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-cycle</command>
+        <property>/controls/engines/engine/magnetos</property>
+        <value>0</value>
+        <value>1</value>
+        <value>2</value>
+        <value>3</value>
+      </binding>
+      <binding>
+          <command>property-toggle</command>
+          <property>sim/model/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Ignition</object-name>
+    <object-name>Ignition.001</object-name>
+        <property>/controls/engines/engine/magnetos</property>
+    <factor> -30 </factor>
+    <center>
+      <x-m> 0.26144 </x-m>
+      <z-m> -0.64281</z-m>
+    </center>
+    <axis>
+      <x1-m>0.1314 </x1-m>
+      <z1-m>-0.5362</z1-m>
+      <x2-m> 0.1472</x2-m>
+      <z2-m>  -0.5193 </z2-m>
+    </axis>
+  </animation>
+  
+</PropertyList>
+

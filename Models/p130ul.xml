@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+ <path>p130ul.ac</path>
+ <model>
+     <path>glasses.ac</path>
+ </model>
+ <model>
+     <name>tricycle</name>
+     <path>gear_tricycle.ac</path>
+ </model>
+ <model>
+     <name>taildragger</name>
+     <path>gear_taildragger.ac</path>
+ </model>
+ <animation>
+     <type>select</type>
+     <object-name>tricycle</object-name>
+     <condition>
+         <property>/controls/gear/tricycle</property>
+     </condition>
+ </animation>
+ <animation>
+     <type>select</type>
+     <object-name>taildragger</object-name>
+     <condition>
+         <property>/controls/gear/taildragger</property>
+     </condition>
+ </animation>
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/CH750STOL/Models/Liveries", 10);
+
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
+    </load>
+
+    <unload>
+      livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
+    </unload>
+  </nasal>
+<!--
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+    <object-name>ailes</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>voletG</object-name>
+    <object-name>voletD</object-name>
+    <object-name>direction</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>trimprof</object-name>
+    <object-name>bol</object-name>
+    <object-name>supportbeacon</object-name>
+    <object-name>supportlampes</object-name>
+
+    <object-name>trous</object-name>
+    <object-name>trimtrous</object-name>
+    <object-name>helice</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+
+    <diffuse>
+      <red-prop>diffuse/red</red-prop>
+      <green-prop>diffuse/green</green-prop>
+      <blue-prop>diffuse/blue</blue-prop>
+    </diffuse>
+
+    <ambient>
+      <red-prop>ambient/red</red-prop>
+      <green-prop>ambient/green</green-prop>
+      <blue-prop>ambient/blue</blue-prop>
+    </ambient>
+
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+
+    <emission>
+      <red-prop>emission/red</red-prop>
+      <green-prop>emission/green</green-prop>
+      <blue-prop>emission/blue</blue-prop>
+    </emission>
+  </animation>-->
+
+
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>Verriere - Vitre ext</object-name>
+  </animation>
+  <effect>
+    <inherits-from>Effects/glass</inherits-from>
+    <object-name>Verriere - Vitre ext</object-name>
+  </effect>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>Verriere - Vitre ext</object-name>
+  </animation>
+
+  <model>
+    <path>Interior/interior.xml</path>
+  </model>
+
+
+  <animation>
+    <type>spin</type>
+    <object-name>Helice</object-name>
+    <property>/engines/engine[0]/rpm</property>
+    <factor> 1 </factor>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+    <center>
+      <z-m>-0.45649 </z-m>
+    </center>
+  </animation>
+
+  <!-- Animations des ailerons -->
+  <animation>
+    <type>rotate</type>
+    <object-name>aileronL</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor> -30 </factor>
+    <axis>
+      <x1-m>1.3044 </x1-m>
+      <y1-m>-0.4635</y1-m>
+      <z1-m> 0.0095</z1-m>
+      <x2-m> 1.1747</x2-m>
+      <y2-m> -2.6989 </y2-m>
+      <z2-m> 0.0126</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>aileronR</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor> 30 </factor>
+    <axis>
+      <x1-m>1.3044 </x1-m>
+      <y1-m>0.4635</y1-m>
+      <z1-m> 0.0095</z1-m>
+      <x2-m> 1.1747</x2-m>
+      <y2-m> 2.6989 </y2-m>
+      <z2-m> 0.0126</z2-m>
+    </axis>
+  </animation>
+
+  <!-- Volets -->
+  <animation>
+    <type>rotate</type>
+    <object-name>flapL</object-name>
+    <property>surface-positions/flap-pos-norm</property>
+    <factor> -40 </factor>
+    <axis>
+      <x1-m>1.3044 </x1-m>
+      <y1-m>-0.4635</y1-m>
+      <z1-m> 0.0095</z1-m>
+      <x2-m> 1.1747</x2-m>
+      <y2-m> -2.6989 </y2-m>
+      <z2-m> 0.0126</z2-m>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>flapR</object-name>
+    <property>surface-positions/flap-pos-norm</property>
+    <factor> 40 </factor>
+    <axis>
+      <x1-m>1.3044 </x1-m>
+      <y1-m>0.4635</y1-m>
+      <z1-m> 0.0095</z1-m>
+      <x2-m> 1.1747</x2-m>
+      <y2-m> 2.6989 </y2-m>
+      <z2-m> 0.0126</z2-m>
+    </axis>
+  </animation>
+
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Profondeur</object-name>
+    <object-name>fix.001</object-name>
+    <object-name>Guignol.004</object-name>
+    <object-name>Tab</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> 20 </factor>
+    <center>
+      <x-m> 3.7652</x-m>
+      <z-m> 0.0532 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>Guignol.004</object-name>
+    <object-name>Tab</object-name>
+    <property>surface-positions/elevator-trim-norm</property>
+    <factor> 25 </factor>
+    <center>
+      <x-m> 4.1211</x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>0.0769</z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  <!-- Gouvernes de direction -->
+  <animation>
+    <type>rotate</type>
+    <object-name>Empennage</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 20 </factor>
+    <axis>
+      <x1-m> 3.9461</x1-m>
+      <z1-m> -0.2499 </z1-m>
+      <x2-m>  4.065 </x2-m>
+      <z2-m>  0.1803</z2-m>
+    </axis>
+  </animation>
+
+  <!-- Door animation: for legoboy ;) -->
+ <!-- <animation>
+    <name>doorleft</name>
+    <object-name>doorL</object-name>
+    <object-name>windowLF</object-name>
+    <object-name>Door.005</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Door.005</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>  
+      <binding>
+        <command>nasal</command>
+        <script>doors.doorsystem.crewexport();</script>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>Door.005</object-name>
+    <property>instrumentation/doors/crew/position-norm</property>
+ <interpolation>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 0.2 </ind><dep>  -120 </dep></entry>
+      <entry><ind> 1 </ind><dep> -120 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -0.04529</x-m>
+      <y-m> -0.51726 </y-m>
+      <z-m>-0.25449</z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z>0 </z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>doorleft</object-name>
+    <property>instrumentation/doors/crew/position-norm</property>
+ <interpolation>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 0.2 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -70 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 0.55109 </x-m>
+      <y-m> -0.51726 </y-m>
+      <z-m>0.49834 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z>0 </z>
+    </axis>
+    </animation>-->
+
+
+
+  <!-- Ajout des effets lumineux -->
+ <model>
+    <path>light/StrobeWhite.xml</path>
+    <offsets>
+      <x-m> 1.2071</x-m>
+      <z-m>  0.143</z-m>
+    </offsets>
+  </model>
+
+<!--Gear animation: up to legoboy ;)-->
+
+</PropertyList>
+

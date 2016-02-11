@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <default>
+    <menu n="10">
+      <label>Pottier P130UL</label>
+      <enabled type="bool">true</enabled>
+      <item>
+        <label>Autostart</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>sim/model/start-idling</property>
+        </binding>
+      </item>
+      <item>
+        <label>Toggle Taildragger/Tricycle</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/gear/tricycle</property>
+        </binding>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/gear/taildragger</property>
+        </binding>
+      </item>
+      <item>
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+      </item>
+    </menu>
+  </default>
+
+</PropertyList>
+
